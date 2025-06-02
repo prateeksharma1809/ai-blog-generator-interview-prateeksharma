@@ -3,7 +3,6 @@ import os
 from dotenv import load_dotenv
 load_dotenv(dotenv_path='../.env')
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 def generate_blog_post(keyword, seo_metrics):
@@ -37,8 +36,8 @@ def generate_blog_post(keyword, seo_metrics):
     )
 
     content = response.choices[0].message.content.strip()
-    content = content.replace("{{AFF_LINK_1}}", "https://dummyurl1.com")
-    content = content.replace("{{AFF_LINK_2}}", "https://dummyurl2.com")
+    content = content.replace("{AFF_LINK_1}", "https://dummyurl1.com")
+    content = content.replace("{AFF_LINK_2}", "https://dummyurl2.com")
 
 
     return content
