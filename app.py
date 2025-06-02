@@ -7,7 +7,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-DAILY_KEYWORD = os.getenv("DAILY_KEYWORD", "wireless earbuds")
+DAILY_KEYWORD = os.getenv("DAILY_KEYWORD", "Dummy")
 
 app = Flask(__name__)
 POST_DIR = "generated_posts"
@@ -32,7 +32,8 @@ def run_generation(keyword):
     return {
         "keyword": keyword,
         "seo_metrics": seo,
-        "saved_file": filename
+        "saved_file": filename,
+        "blog_post": blog_post
     }
 
 def scheduled_job():
