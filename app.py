@@ -5,7 +5,6 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime
 import os
 from dotenv import load_dotenv
-from pathlib import Path
 
 load_dotenv()
 DAILY_KEYWORD = os.getenv("DAILY_KEYWORD", "wireless earbuds")
@@ -42,7 +41,7 @@ def scheduled_job():
 
 # Start APScheduler
 scheduler = BackgroundScheduler()
-scheduler.add_job(scheduled_job, trigger="interval", seconds=30)
+scheduler.add_job(scheduled_job, trigger="interval", days=1)
 scheduler.start()
 
 if __name__ == '__main__':
