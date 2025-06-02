@@ -1,0 +1,19 @@
+# Ignore Git
+.git
+.gitignore
+
+# IDE/editor config
+.vscode/
+
+# Virtual environment
+venv/
+
+# Ignore local development files
+.env
+*.md
+*.pyc
+__pycache__/
+
+# Ignore Docker files that aren’t needed in the image
+.dockerignore
+Dockerfile*

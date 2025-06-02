@@ -1,0 +1,17 @@
+{
+  "wireless earbuds": {
+    "search_volume": 45000,
+    "keyword_difficulty": 0.7,
+    "avg_cpc": 1.8
+  },
+  "fitness tracker": {
+    "search_volume": 28000,
+    "keyword_difficulty": 0.5,
+    "avg_cpc": 2.3
+  },
+  "smart home devices": {
+    "search_volume": 34000,
+    "keyword_difficulty": 0.6,
+    "avg_cpc": 2.0
+  }
+}
