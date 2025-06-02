@@ -4,6 +4,11 @@ from src.ai_generator import generate_blog_post
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime
 import os
+from dotenv import load_dotenv
+from pathlib import Path
+
+load_dotenv()
+DAILY_KEYWORD = os.getenv("DAILY_KEYWORD", "wireless earbuds")
 
 app = Flask(__name__)
 POST_DIR = "generated_posts"
@@ -32,13 +37,12 @@ def run_generation(keyword):
     }
 
 def scheduled_job():
-    keyword = "wireless earbuds"
-    print(f"[{datetime.now()}] Running scheduled job for '{keyword}'")
-    run_generation(keyword)
+    print(f"[{datetime.now()}] Running scheduled job for '{DAILY_KEYWORD}'")
+    run_generation(DAILY_KEYWORD)
 
 # Start APScheduler
 scheduler = BackgroundScheduler()
-scheduler.add_job(scheduled_job, trigger="interval", days=1)
+scheduler.add_job(scheduled_job, trigger="interval", seconds=30)
 scheduler.start()
 
 if __name__ == '__main__':
